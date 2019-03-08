@@ -18,9 +18,9 @@ public class QuestionAnswerController {
     @Autowired
     QuestionRepository questionRepository;
 
-    @GetMapping("/{question}")
-    public List<QuestionAnswer> findQuestionAnswersById(@PathVariable Long id){
-        return questionRepository.findQuestionAnswersById(id);
+    @GetMapping("/{question_id}")
+    public List<QuestionAnswer> findQuestionAnswerById(@PathVariable Long question_id){
+        return questionRepository.getQuestionAnswerById(question_id);
 
 
     }

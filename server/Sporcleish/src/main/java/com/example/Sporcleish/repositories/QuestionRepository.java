@@ -10,8 +10,6 @@ import java.util.List;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<QuestionAnswer, Long> {
-    List<QuestionAnswer> findQuestionAnswersById(Long questionId);
-
-
+    List<QuestionAnswer> getQuestionAnswerById(Long questionId);
 
 }
