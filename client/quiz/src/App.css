@@ -31,3 +31,30 @@
     transform: rotate(360deg);
   }
 }
+
+/* CSS for us starts below */
+
+.quiz-container{
+  background-color: blue;
+  border-style: solid;
+  border-color: black;
+}
+
+.quiz-header{
+  background-color: red;
+  border-style: solid;
+  border-color: black;
+}
+
+.quiz-list{
+  background-color: green;
+  border-style: solid;
+  border-color: black;
+}
+
+.quiz-tile{
+ background-color: yellow;
+ border-style: solid;
+ border-color: black;
+}
+

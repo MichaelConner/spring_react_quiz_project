@@ -24,6 +24,12 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         QuestionAnswer Q1  = new QuestionAnswer("What is the capital of France?");
         questionRepository.save(Q1);
+        QuestionAnswer Q2  = new QuestionAnswer("What is the capital of Germany?");
+        questionRepository.save(Q2);
+        QuestionAnswer Q3  = new QuestionAnswer("What is the capital of Spain?");
+        questionRepository.save(Q3);
+        QuestionAnswer Q4  = new QuestionAnswer("What is the capital of Secaucus?");
+        questionRepository.save(Q4);
     }
 
 

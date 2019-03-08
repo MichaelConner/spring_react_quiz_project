@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import QuizHeader from '../components/QuizHeader'
+import QuizList from '../components/QuizList'
 
 class QuizContainer extends Component{
     constructor(props){
@@ -11,7 +13,7 @@ class QuizContainer extends Component{
     }
 
 componentDidMount(){
-    const url = 'http://localhost:8080/questions/1/'
+    const url = 'http://localhost:8080/questions/4/'
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
@@ -19,9 +21,10 @@ componentDidMount(){
 
 render(){
     return(
-        <div className="quizzes">
-            <h2>Hi! I came from the DB:</h2>
-            {this.state.quizzes[0]['question']}
+        <div className="quiz-container">
+            <h2 value>Hi! I am the Container!</h2>
+            <QuizHeader/>
+            <QuizList quizzes={this.state.quizzes}/>
         </div>
     )
 }
