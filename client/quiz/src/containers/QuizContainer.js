@@ -21,7 +21,7 @@ render(){
     return(
         <div className="quizzes">
             <h2>Hi! I came from the DB:</h2>
-            {this.state.quizzes[0].question}
+            {this.state.quizzes[0]['question']}
         </div>
     )
 }
