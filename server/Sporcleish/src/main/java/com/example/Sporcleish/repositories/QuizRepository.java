@@ -8,8 +8,8 @@ import java.util.List;
 @Repository
 public interface QuizRepository extends JpaRepository<QuizRepository, Long> {
 
-    Quiz getQuizByCategory(String category);
-    List<Quiz> getAllQuizzes();
+//    Quiz getQuizByCategory(String category);
+//    List<Quiz> getAllQuizzes();
 
 }
 

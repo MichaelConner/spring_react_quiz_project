@@ -14,9 +14,14 @@ public class QuestionAnswer {
     @Column(name="question")
     private String question;
 
-    public QuestionAnswer(String question) {
+    @Column(name="cateogry")
+    private String category;
+
+    public QuestionAnswer(String question, String category) {
         this.question = question;
+        this.category = category;
     }
+
 
     public QuestionAnswer(){
 
@@ -36,5 +41,14 @@ public class QuestionAnswer {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

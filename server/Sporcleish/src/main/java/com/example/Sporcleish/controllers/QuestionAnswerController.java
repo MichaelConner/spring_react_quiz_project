@@ -23,5 +23,11 @@ public class QuestionAnswerController {
 
     }
 
+    @GetMapping("/{category}")
+    public List<QuestionAnswer> getQuestionsByCategory(@PathVariable String category){
+        return questionRepository.getQuestionAnswersByCategory(category);
+        
+    }
+
 
 }
