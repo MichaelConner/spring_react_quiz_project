@@ -5,13 +5,13 @@ class QuizContainer extends Component{
         super(props);
         this.state = {
             quizzes: [],
-            currentQuiz: null
+            currentQuiz: "Hello"
         };
 
     }
 
 componentDidMount(){
-    const url = 'http://localhost:8080/questions/1/'
+    const url = "http://localhost:8080/questions/1/"
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
@@ -21,7 +21,7 @@ render(){
     return(
         <div className="quizzes">
             <h2>Hi! I came from the DB:</h2>
-            {this.state.quizzes[0]['question']}
+            <p>{this.state.currentQuiz}</p>
         </div>
     )
 }
