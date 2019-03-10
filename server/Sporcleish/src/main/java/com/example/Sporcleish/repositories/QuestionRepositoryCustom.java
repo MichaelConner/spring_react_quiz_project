@@ -7,5 +7,6 @@ import java.util.List;
 public interface QuestionRepositoryCustom {
 
     List<QuestionAnswer> getAllQuestions();
+    List<QuestionAnswer> getAllQuestionsForCategory(String category);
 
 }

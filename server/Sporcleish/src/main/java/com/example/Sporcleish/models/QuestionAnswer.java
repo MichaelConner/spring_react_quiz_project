@@ -14,7 +14,7 @@ public class QuestionAnswer {
     @Column(name="question")
     private String question;
 
-    @Column(name="cateogry")
+    @Column(name="category")
     private String category;
 
     public QuestionAnswer(String question, String category) {
