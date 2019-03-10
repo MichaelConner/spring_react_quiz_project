@@ -2,12 +2,11 @@ package com.example.Sporcleish.controllers;
 
 
 import com.example.Sporcleish.models.QuestionAnswer;
-import com.example.Sporcleish.repositories.QuestionRepository;
+import com.example.Sporcleish.repositories.QuestionRepositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -43,5 +42,5 @@ public class QuestionAnswerController {
     public void addNewQuestion(QuestionAnswer question){
         questionRepository.save(question);
     }
-    
+
 }

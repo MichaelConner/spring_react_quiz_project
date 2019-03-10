@@ -1,4 +1,4 @@
-package com.example.Sporcleish.repositories;
+package com.example.Sporcleish.repositories.QuestionRepositories;
 
 import com.example.Sporcleish.models.QuestionAnswer;
 import org.hibernate.Criteria;

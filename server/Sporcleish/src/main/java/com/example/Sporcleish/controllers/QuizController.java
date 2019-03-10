@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/quizzes")
 public class QuizController {
 
-//    @Autowired
-//    QuizRepository quizRepository;
+    @Autowired
+    QuizRepository quizRepository;
 
 }

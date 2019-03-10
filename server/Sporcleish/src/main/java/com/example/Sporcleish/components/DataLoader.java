@@ -2,7 +2,7 @@ package com.example.Sporcleish.components;
 
 
 import com.example.Sporcleish.models.QuestionAnswer;
-import com.example.Sporcleish.repositories.QuestionRepository;
+import com.example.Sporcleish.repositories.QuestionRepositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
