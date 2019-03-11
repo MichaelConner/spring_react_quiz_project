@@ -26,8 +26,8 @@ componentDidMount(){
         .then(data => this.setState({quizzes: data}))
 }
 
-handleQuizSelected(id){
-    const url = "http://localhost:8080/questions/" + {id};
+handleQuizSelected(){
+    const url = `http://localhost:8080/quizzes/2/questions/`;
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({questions: data}))
@@ -39,8 +39,15 @@ render(){
             <Fragment>
                 <QuizHeader/>
                     <Switch>
-                        <Route exact path="/" render={() => <QuizList quizzes={this.state.quizzes}/>}/>
-                        <Route name="quiz" path="/quiz/:id" render={() => <Quiz questions={this.state.questions}/>}/>
+                        
+                        <Route exact path="/" 
+                               render={() => <QuizList quizzes={this.state.quizzes} onQuizSelected={this.handleQuizSelected}/>}/>
+                        
+                        <Route name="quiz" 
+                               path="/quiz/:id"
+                               onClick={this.handleQuizSelected()}
+                               render={() => <Quiz questions={this.state.questions}/>}/>
+                    
                     </Switch>
             </Fragment>
         </Router>
