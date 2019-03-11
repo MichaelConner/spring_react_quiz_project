@@ -16,21 +16,32 @@ public class QuestionAnswer {
     @Column(name="question")
     private String question;
 
+    @Column(name="answer")
+    private String answer;
+
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "quizz_id", nullable = false)
+    @JoinColumn(name = "quiz_id", nullable = false)
     private Quiz quiz;
 
-    public QuestionAnswer(String question, Quiz quiz) {
+    public QuestionAnswer(String question, String answer, Quiz quiz) {
         this.question = question;
         this.quiz = quiz;
+        this.answer = answer;
+
     }
-
-
 
 
     public QuestionAnswer(){
 
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public Long getId() {

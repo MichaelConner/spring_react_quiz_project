@@ -4,6 +4,7 @@ package com.example.Sporcleish.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,12 +21,13 @@ public class Quiz {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "quizz_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
     private List<QuestionAnswer> questionAnswer;
 
 
     public Quiz(String category) {
         this.category = category;
+        this.questionAnswer = new ArrayList<>();
 
     }
 
@@ -55,5 +57,9 @@ public class Quiz {
 
     public void setQuestionAnswer(List<QuestionAnswer> questionAnswer) {
         this.questionAnswer = questionAnswer;
+    }
+
+    public void addQuestionAnswer(QuestionAnswer qa){
+        this.questionAnswer.add(qa);
     }
 }

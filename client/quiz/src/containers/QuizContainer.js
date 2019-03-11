@@ -14,7 +14,7 @@ class QuizContainer extends Component{
     }
 
 componentDidMount(){
-    const url = "http://localhost:8080/1/"
+    const url = "http://localhost:8080/questions"
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
