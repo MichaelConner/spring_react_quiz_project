@@ -9,10 +9,8 @@ class QuizContainer extends Component{
         super(props);
         this.state = {
             quizzes: [],
-            currentQuiz: null,
             questions: []
         };
-        this.fetchQuestions = this.fetchQuestions.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -21,13 +19,6 @@ componentDidMount(){
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
-}
-
-fetchQuestions(id){
-    const url = `http://localhost:8080/quizzes/${id}/questions/`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => this.setState({questions: data}))
 }
 
 handleInputChange(e) {
@@ -57,13 +48,12 @@ render(){
                     <Switch>  
                         <Route exact path="/" 
                                render={() => <QuizList 
-                               quizzes={filteredList} 
-                               fetchQuestions={this.fetchQuestions()}/>}
+                               quizzes={filteredList} />}
                                />
                         
                         <Route name="quiz" 
                                path="/quiz/:id"
-                               render={() => <Quiz questions={this.state.questions}/>}
+                               render={() => <Quiz />}
                                />
                     </Switch>
 
