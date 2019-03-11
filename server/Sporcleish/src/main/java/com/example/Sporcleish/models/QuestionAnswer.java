@@ -1,6 +1,8 @@
 package com.example.Sporcleish.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,13 +16,17 @@ public class QuestionAnswer {
     @Column(name="question")
     private String question;
 
-    @Column(name="category")
-    private String category;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "quizz_id", nullable = false)
+    private Quiz quiz;
 
-    public QuestionAnswer(String question, String category) {
+    public QuestionAnswer(String question, Quiz quiz) {
         this.question = question;
-        this.category = category;
+        this.quiz = quiz;
     }
+
+
 
 
     public QuestionAnswer(){
@@ -43,12 +49,12 @@ public class QuestionAnswer {
         this.question = question;
     }
 
-
-    public String getCategory() {
-        return category;
+    public Quiz getQuiz() {
+        return quiz;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+
     }
 }
