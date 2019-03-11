@@ -2,7 +2,7 @@ package com.example.Sporcleish.controllers;
 
 
 import com.example.Sporcleish.models.QuestionAnswer;
-import com.example.Sporcleish.repositories.QuestionRepository;
+import com.example.Sporcleish.repositories.QuestionRepositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,5 +22,25 @@ public class QuestionAnswerController {
         return questionRepository.getQuestionAnswerById(question_id);
     }
 
+    @GetMapping("/categories/{category}")
+    public List<QuestionAnswer> findQuestionAnswersByCategory(@PathVariable String category){
+        return questionRepository.getAllQuestionsForCategory(category);
+
+    }
+
+    @GetMapping
+    public List<QuestionAnswer> getAllQuestions(){
+        return questionRepository.findAll();
+    }
+
+    @DeleteMapping("/{question_id}")
+    public void deleteById(@PathVariable Long question_id){
+        questionRepository.deleteById(question_id);
+    }
+
+    @PostMapping
+    public void addNewQuestion(QuestionAnswer question){
+        questionRepository.save(question);
+    }
 
 }
