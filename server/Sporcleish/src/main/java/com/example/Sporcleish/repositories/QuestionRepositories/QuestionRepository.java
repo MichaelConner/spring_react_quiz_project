@@ -9,11 +9,8 @@ import java.util.List;
 
 
 @Repository
-<<<<<<< HEAD:server/Sporcleish/src/main/java/com/example/Sporcleish/repositories/QuestionRepository.java
-public interface QuestionRepository extends JpaRepository<QuestionAnswer, Long> {
-=======
+
 public interface QuestionRepository extends JpaRepository<QuestionAnswer, Long>, QuestionRepositoryCustom {
->>>>>>> develop:server/Sporcleish/src/main/java/com/example/Sporcleish/repositories/QuestionRepositories/QuestionRepository.java
 
     List<QuestionAnswer> getQuestionAnswerById(Long questionId);
     List<QuestionAnswer> getAllQuestions();
