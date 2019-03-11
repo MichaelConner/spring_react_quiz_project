@@ -76,7 +76,6 @@ public class DataLoader implements ApplicationRunner {
         quiz3.addQuestionAnswer(Q8);
         quiz3.addQuestionAnswer(Q9);
 
-
     }
 
 }

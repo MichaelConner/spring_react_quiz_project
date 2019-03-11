@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import QuizHeader from '../components/QuizHeader'
 import QuizList from '../components/QuizList'
+import Quiz from '../components/Quiz'
 
 class QuizContainer extends Component{
     constructor(props){
@@ -12,7 +14,7 @@ class QuizContainer extends Component{
     }
 
 componentDidMount(){
-    const url = "http://localhost:8080/questions/1/"
+    const url = "http://localhost:8080/questions"
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
@@ -20,12 +22,15 @@ componentDidMount(){
 
 render(){
     return(
-        <div className="quiz-container">
-            <h2 value>Hi! I am the Container!</h2>
-            <QuizHeader/>
-            <QuizList quizzes={this.state.quizzes}/>
-
-        </div>
+        <Router>
+            <Fragment>
+                <QuizHeader/>
+                    <Switch>
+                        <Route exact path="/" render={() => <QuizList quizzes={this.state.quizzes}/>}/>
+                        <Route path="/quiz/{id}" render={() => <Quiz/>}/>
+                    </Switch>
+            </Fragment>
+        </Router>
     )
 }
 
