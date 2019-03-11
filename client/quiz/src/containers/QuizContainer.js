@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import QuizHeader from '../components/QuizHeader'
 import QuizList from '../components/QuizList'
 import Quiz from '../components/Quiz'
