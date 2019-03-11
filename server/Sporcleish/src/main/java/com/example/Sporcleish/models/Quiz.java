@@ -21,7 +21,7 @@ public class Quiz {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<QuestionAnswer> questionAnswer;
 
 
