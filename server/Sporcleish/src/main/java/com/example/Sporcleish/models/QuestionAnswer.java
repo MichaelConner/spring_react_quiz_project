@@ -26,6 +26,8 @@ public class QuestionAnswer {
         this.quiz = quiz;
     }
 
+    
+
     public QuestionAnswer(){
 
     }
