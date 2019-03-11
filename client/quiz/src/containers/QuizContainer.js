@@ -16,13 +16,21 @@ class QuizContainer extends Component{
                 {id: 3, question: "hello?", answer: "hiya"}
             ]
         };
+        this.handleQuizSelected = this.handleQuizSelected.bind(this);
     }
 
 componentDidMount(){
-    const url = "http://localhost:8080/questions"
+    const url = "http://localhost:8080/quizzes"
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({quizzes: data}))
+}
+
+handleQuizSelected(id){
+    const url = "http://localhost:8080/questions/" + {id};
+    fetch(url)
+        .then(res => res.json())
+        .then(data => this.setState({questions: data}))
 }
 
 render(){
