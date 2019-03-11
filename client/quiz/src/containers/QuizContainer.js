@@ -27,7 +27,7 @@ render(){
                 <QuizHeader/>
                     <Switch>
                         <Route exact path="/" render={() => <QuizList quizzes={this.state.quizzes}/>}/>
-                        <Route path="/quiz/{id}" render={() => <Quiz/>}/>
+                        <Route name="quiz" path="/quiz/:id" render={() => <Quiz/>}/>
                     </Switch>
             </Fragment>
         </Router>
