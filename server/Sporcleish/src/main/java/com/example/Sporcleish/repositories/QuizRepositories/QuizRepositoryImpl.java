@@ -18,12 +18,27 @@ public class QuizRepositoryImpl implements QuizRepositoryCustom {
     EntityManager entityManager;
 
     @Transactional
-    public List<Quiz> getAllQuestionsForCategory(String category){
+    public List<Quiz> getAllQuizzes(){
         List<Quiz> results = null;
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(Quiz.class);
-            cr.add(Restrictions.eq("category", category));
+            results = cr.list();
+
+        } catch (HibernateException ex){
+            ex.printStackTrace();
+        }
+
+        return results;
+    }
+
+    @Transactional
+    public List<QuestionAnswer> getAllQuestionsForQuizID(Long id){
+        List<QuestionAnswer> results = null;
+        Session session = entityManager.unwrap(Session.class);
+        try {
+            Criteria cr = session.createCriteria(QuestionAnswer.class);
+            cr.add(Restrictions.eq("quiz.id", id));
             results = cr.list();
 
         } catch (HibernateException ex){
