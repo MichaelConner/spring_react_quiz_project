@@ -4,8 +4,10 @@ class QuizTile extends Component {
     render(){
         return(
             <div className="quiz-tile">
-                <h2>Hi I am a Quiz Tile!</h2>
-                <h4>{this.props.id}: {this.props.question}</h4>
+                <p>Placholder for img</p>
+                <h4>{this.props.id}: {this.props.category}</h4>
+                <p>Placeholder for Delete button</p>
+                <a href="https://google.com">Link to actual quiz</a>
             </div>
         )
     } 
