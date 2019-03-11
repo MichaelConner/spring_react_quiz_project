@@ -37,6 +37,15 @@ public class DataLoader implements ApplicationRunner {
         Quiz quiz3 = new Quiz("science");
         quizRepository.save(quiz3);
 
+        Quiz quiz4 = new Quiz("history of rome");
+        quizRepository.save(quiz4);
+
+        Quiz quiz5 = new Quiz("ancient greek history");
+        quizRepository.save(quiz5);
+
+        Quiz quiz6 = new Quiz("storytime");
+        quizRepository.save(quiz6);
+
 
 
         QuestionAnswer Q1  = new QuestionAnswer("What is the capital of France?", "Paris",quiz1);
@@ -69,12 +78,12 @@ public class DataLoader implements ApplicationRunner {
         quiz1.addQuestionAnswer(Q1);
         quiz1.addQuestionAnswer(Q2);
         quiz1.addQuestionAnswer(Q3);
-        quiz2.addQuestionAnswer(Q4);
-        quiz2.addQuestionAnswer(Q5);
-        quiz2.addQuestionAnswer(Q6);
-        quiz3.addQuestionAnswer(Q7);
-        quiz3.addQuestionAnswer(Q8);
-        quiz3.addQuestionAnswer(Q9);
+        quiz3.addQuestionAnswer(Q4);
+        quiz3.addQuestionAnswer(Q5);
+        quiz3.addQuestionAnswer(Q6);
+        quiz2.addQuestionAnswer(Q7);
+        quiz2.addQuestionAnswer(Q8);
+        quiz2.addQuestionAnswer(Q9);
 
     }
 

@@ -12,7 +12,7 @@ class QuizContainer extends Component{
             currentQuiz: null,
             questions: []
         };
-        this.handleQuizSelected = this.handleQuizSelected.bind(this);
+        this.fetchQuestions = this.fetchQuestions.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -23,8 +23,8 @@ componentDidMount(){
         .then(data => this.setState({quizzes: data}))
 }
 
-handleQuizSelected(){
-    const url = `http://localhost:8080/quizzes/2/questions/`;
+fetchQuestions(id){
+    const url = `http://localhost:8080/quizzes/${id}/questions/`;
     fetch(url)
         .then(res => res.json())
         .then(data => this.setState({questions: data}))
@@ -41,7 +41,6 @@ getFilteredList() {
     )
 }
 
-
 render(){
 
     const filteredList = this.state.inputValue
@@ -57,12 +56,15 @@ render(){
                     
                     <Switch>  
                         <Route exact path="/" 
-                               render={() => <QuizList quizzes={filteredList} onQuizSelected={this.handleQuizSelected}/>}/>
+                               render={() => <QuizList 
+                               quizzes={filteredList} 
+                               fetchQuestions={this.fetchQuestions()}/>}
+                               />
                         
                         <Route name="quiz" 
                                path="/quiz/:id"
-                               onClick={this.handleQuizSelected()}
-                               render={() => <Quiz questions={this.state.questions}/>}/>
+                               render={() => <Quiz questions={this.state.questions}/>}
+                               />
                     </Switch>
 
             </Fragment>
