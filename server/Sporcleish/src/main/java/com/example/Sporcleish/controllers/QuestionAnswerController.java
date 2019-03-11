@@ -39,7 +39,7 @@ public class QuestionAnswerController {
     }
 
     @PostMapping
-    public void addNewQuestion(QuestionAnswer question){
+    public void addNewQuestion(@RequestBody QuestionAnswer question){
         questionRepository.save(question);
     }
 

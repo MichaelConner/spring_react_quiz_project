@@ -37,7 +37,7 @@ public class QuizController {
     }
 
     @PostMapping
-    public void newQuiz(Quiz quiz){
+    public void newQuiz(@RequestBody Quiz quiz){
         quizRepository.save(quiz);
     }
 
