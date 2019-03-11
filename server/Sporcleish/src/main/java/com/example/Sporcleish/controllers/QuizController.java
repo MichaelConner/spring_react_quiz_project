@@ -1,5 +1,6 @@
 package com.example.Sporcleish.controllers;
 
+import com.example.Sporcleish.repositories.QuizRepositories.QuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
