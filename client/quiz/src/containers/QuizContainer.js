@@ -9,7 +9,12 @@ class QuizContainer extends Component{
         super(props);
         this.state = {
             quizzes: [],
-            currentQuiz: "Hello"
+            currentQuiz: null,
+            questions: [
+                {id: 1, question: "hello?", answer: "hiya"},
+                {id: 2, question: "hello?", answer: "hiya"},
+                {id: 3, question: "hello?", answer: "hiya"}
+            ]
         };
     }
 
@@ -27,7 +32,7 @@ render(){
                 <QuizHeader/>
                     <Switch>
                         <Route exact path="/" render={() => <QuizList quizzes={this.state.quizzes}/>}/>
-                        <Route name="quiz" path="/quiz/:id" render={() => <Quiz/>}/>
+                        <Route name="quiz" path="/quiz/:id" render={() => <Quiz questions={this.state.questions}/>}/>
                     </Switch>
             </Fragment>
         </Router>
