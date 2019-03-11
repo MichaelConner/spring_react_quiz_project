@@ -9,7 +9,6 @@ class QuizContainer extends Component{
             quizzes: [],
             currentQuiz: null
         };
-
     }
 
 componentDidMount(){

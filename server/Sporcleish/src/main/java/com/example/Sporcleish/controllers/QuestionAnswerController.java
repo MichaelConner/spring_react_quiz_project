@@ -16,11 +16,10 @@ public class QuestionAnswerController {
     @Autowired
     QuestionRepository questionRepository;
 
+
     @GetMapping("/{question_id}")
     public List<QuestionAnswer> findQuestionAnswerById(@PathVariable Long question_id){
         return questionRepository.getQuestionAnswerById(question_id);
-
-
     }
 
 
