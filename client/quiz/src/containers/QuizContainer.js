@@ -35,12 +35,18 @@ handleCurrentQuizChange(id) {
 
 handleDeleteQuiz(id){
     const url = `http://localhost:8080/quizzes/${id}`
-    return fetch(url, {
-        method: 'DELETE'
-        // mode:  'CORS'
-    }).then(res=> res)
-    // }).catch(err => err);
-}
+    return fetch(url, {method: 'DELETE'})
+            .then(res=> res)
+            .then((data) => {
+                
+                const filteredQuizzes = this.state.quizzes.filter((quiz) => {
+                return parseInt(id) !== quiz.id;
+                })
+            
+                return this.setState({quizzes: filteredQuizzes}
+            );
+        })
+} 
 
 
 
