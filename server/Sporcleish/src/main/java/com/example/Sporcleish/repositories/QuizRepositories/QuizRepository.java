@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface QuizRepository extends JpaRepository<Quiz, Long>, QuizRepositoryCustom {
 
-    List<Quiz> getQuizById(Long quiz_id);
+    Quiz getQuizById(Long quiz_id);
     List<Quiz> getAllQuizzes();
     List<QuestionAnswer> getAllQuestionsForQuizID(Long id);
 }

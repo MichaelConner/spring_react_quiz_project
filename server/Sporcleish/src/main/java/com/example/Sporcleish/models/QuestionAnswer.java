@@ -1,7 +1,8 @@
 package com.example.Sporcleish.models;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -25,7 +26,6 @@ public class QuestionAnswer {
     @Column(name="correct")
     private int correct;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
     private Quiz quiz;

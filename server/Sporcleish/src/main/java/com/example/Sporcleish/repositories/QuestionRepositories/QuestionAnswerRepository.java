@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public interface QuestionRepository extends JpaRepository<QuestionAnswer, Long>, QuestionRepositoryCustom {
+public interface QuestionAnswerRepository extends JpaRepository<QuestionAnswer, Long>, QuestionAnswerRepositoryCustom {
 
     List<QuestionAnswer> getQuestionAnswerById(Long questionId);
     List<QuestionAnswer> getAllQuestions();

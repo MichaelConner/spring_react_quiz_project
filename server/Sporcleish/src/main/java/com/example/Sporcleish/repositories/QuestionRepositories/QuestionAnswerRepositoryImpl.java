@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public class QuestionRepositoryImpl implements QuestionRepositoryCustom {
+public class QuestionAnswerRepositoryImpl implements QuestionAnswerRepositoryCustom {
 
     @Autowired
     EntityManager entityManager;

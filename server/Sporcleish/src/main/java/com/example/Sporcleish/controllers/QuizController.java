@@ -17,7 +17,7 @@ public class QuizController {
     QuizRepository quizRepository;
 
     @GetMapping("/{id}")
-    public List<Quiz> findQuizById(@PathVariable Long id){
+    public Quiz findQuizById(@PathVariable Long id){
         return quizRepository.getQuizById(id);
     }
 
@@ -34,5 +34,10 @@ public class QuizController {
     @DeleteMapping("/{id}")
     public void deleteQuizById(@PathVariable Long id){
         quizRepository.deleteById(id);
+    }
+
+    @PostMapping
+    public void addNewQuiz (@RequestBody Quiz quiz){
+       quizRepository.save(quiz);
     }
 }
