@@ -31,4 +31,8 @@ public class QuizController {
         return quizRepository.findAll();
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteQuizById(@PathVariable Long id){
+        quizRepository.deleteById(id);
+    }
 }
