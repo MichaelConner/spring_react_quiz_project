@@ -6,10 +6,14 @@ class QuizTile extends Component {
 
         return(
             <div className="quiz-tile">
-                <p>Placholder for img</p>
+                <p>Placeholder for img</p>
                 <h4>{this.props.id}: {this.props.category}</h4>
                 <p>Placeholder for Delete button</p>
-                <Link to={`quiz/${this.props.id}`} >Link to actual quiz</Link>
+                
+                <Link to={`quiz/${this.props.id}`} 
+                onClick={() => {this.props.onChange(`${this.props.id}`)}}
+                >Link to actual quiz</Link>
+
             </div>
         )
     } 

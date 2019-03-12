@@ -9,9 +9,12 @@ class QuizContainer extends Component{
         super(props);
         this.state = {
             quizzes: [],
-            questions: []
+            questions: [],
+            inputValue: '',
+            currentQuizId: null
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleCurrentQuizChange = this.handleCurrentQuizChange.bind(this);
     }
 
 componentDidMount(){
@@ -21,8 +24,12 @@ componentDidMount(){
         .then(data => this.setState({quizzes: data}))
 }
 
-handleInputChange(e) {
-    this.setState({ inputValue: e.target.value })
+handleInputChange(event) {
+    this.setState({ inputValue: event.target.value })
+}
+
+handleCurrentQuizChange(id) {
+    this.setState({ currentQuizId: id })
 }
 
 getFilteredList() {
@@ -48,12 +55,14 @@ render(){
                     <Switch>  
                         <Route exact path="/" 
                                render={() => <QuizList 
-                               quizzes={filteredList} />}
+                               quizzes={filteredList} 
+                               onChange={this.handleCurrentQuizChange}/>}
                                />
                         
                         <Route name="quiz" 
                                path="/quiz/:id"
-                               render={() => <Quiz />}
+                               render={() => <Quiz 
+                               currentQuizId={this.state.currentQuizId}/>}
                                />
                     </Switch>
 

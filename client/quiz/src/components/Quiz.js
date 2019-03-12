@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Quiz extends Component {
     constructor(props){
@@ -9,7 +10,7 @@ class Quiz extends Component {
     }
     
     componentDidMount(){
-        const id = 3
+        const id = this.props.currentQuizId
         const url = `http://localhost:8080/quizzes/${id}/questions/`;
         fetch(url)
             .then(res => res.json())
@@ -28,6 +29,7 @@ class Quiz extends Component {
             <div className="quiz">
                 <h2>Hi I am  a Quiz!</h2> 
                 {questions} 
+                <Link to="/">back</Link>
             </div>
         )
     } 
