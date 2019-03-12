@@ -18,6 +18,9 @@ public class Quiz {
     @Column(name="difficulty")
     private double difficulty;
 
+    @Column(name="imgurl")
+    private String imgurl;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,10 +31,26 @@ public class Quiz {
     private List<QuestionAnswer> questionAnswer;
 
 
-    public Quiz(String category) {
+    public Quiz(String category, String imgurl) {
         this.category = category;
         this.questionAnswer = new ArrayList<>();
         this.difficulty = 0.5;
+
+        if (imgurl.isEmpty()){
+            this.imgurl = "somedefaultimage";
+        } else {
+            this.imgurl = imgurl;
+        }
+
+    }
+
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 
     public Quiz() {
