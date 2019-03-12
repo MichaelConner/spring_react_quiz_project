@@ -6,7 +6,12 @@ class QuizList extends Component {
       
         const quizTiles = this.props.quizzes.map(quiz => {
             return(
-                <QuizTile key= {quiz.id} id={quiz.id} category={quiz.category} onChange={this.props.onChange}/>
+                <QuizTile key= {quiz.id} 
+                          id={quiz.id} 
+                          category={quiz.category} 
+                          onChange={this.props.onChange}
+                          onDelete={this.props.onDelete}
+                          />
             )
         })
 

@@ -15,6 +15,7 @@ class QuizContainer extends Component{
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCurrentQuizChange = this.handleCurrentQuizChange.bind(this);
+        this.handleDeleteQuiz = this.handleDeleteQuiz.bind(this);
     }
 
 componentDidMount(){
@@ -31,6 +32,17 @@ handleInputChange(event) {
 handleCurrentQuizChange(id) {
     this.setState({ currentQuizId: id })
 }
+
+handleDeleteQuiz(id){
+    const url = `http://localhost:8080/quizzes/${id}`
+    return fetch(url, {
+        method: 'DELETE'
+        // mode:  'CORS'
+    }).then(res=> res)
+    // }).catch(err => err);
+}
+
+
 
 getFilteredList() {
     const filterValue = this.state.inputValue.toLowerCase()
@@ -56,7 +68,8 @@ render(){
                         <Route exact path="/" 
                                render={() => <QuizList 
                                quizzes={filteredList} 
-                               onChange={this.handleCurrentQuizChange}/>}
+                               onChange={this.handleCurrentQuizChange} 
+                               onDelete={this.handleDeleteQuiz}/>}
                                />
                         
                         <Route name="quiz" 
