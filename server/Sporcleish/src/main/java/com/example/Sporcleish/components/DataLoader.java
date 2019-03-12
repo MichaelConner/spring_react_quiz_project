@@ -28,40 +28,40 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
-        Quiz quiz1 = new Quiz("Geography");
+        Quiz quiz1 = new Quiz("Geography", "");
         quizRepository.save(quiz1);
 
-        Quiz quiz2 = new Quiz("Politics");
+        Quiz quiz2 = new Quiz("Politics","");
         quizRepository.save(quiz2);
 
-        Quiz quiz3 = new Quiz("Science");
+        Quiz quiz3 = new Quiz("Science", "");
         quizRepository.save(quiz3);
 
-        Quiz quiz4 = new Quiz("Science/Animals");
+        Quiz quiz4 = new Quiz("Science/Animals", "");
         quizRepository.save(quiz4);
 
-        Quiz quiz5 = new Quiz("Music");
+        Quiz quiz5 = new Quiz("Music", "");
         quizRepository.save(quiz5);
 
-        Quiz quiz6 = new Quiz("History");
+        Quiz quiz6 = new Quiz("History", "");
         quizRepository.save(quiz6);
 
-        Quiz quiz7 = new Quiz("The Simpsons");
+        Quiz quiz7 = new Quiz("The Simpsons", "");
         quizRepository.save(quiz7);
 
-        Quiz quiz8 = new Quiz("Disney");
+        Quiz quiz8 = new Quiz("Disney", "");
         quizRepository.save(quiz8);
 
-        Quiz quiz9 = new Quiz("Sports");
+        Quiz quiz9 = new Quiz("Sports", "");
         quizRepository.save(quiz9);
 
-        Quiz quiz10 = new Quiz("Books");
+        Quiz quiz10 = new Quiz("Books", "");
         quizRepository.save(quiz10);
 
-        Quiz quiz11 = new Quiz("Kids");
+        Quiz quiz11 = new Quiz("Kids", "");
         quizRepository.save(quiz11);
 
-        Quiz quiz12 = new Quiz("Actors and Actresses");
+        Quiz quiz12 = new Quiz("Actors and Actresses", "");
         quizRepository.save(quiz12);
 
 
@@ -220,7 +220,7 @@ public class DataLoader implements ApplicationRunner {
 
 
 
-        Quiz quiz60 = new Quiz("general");
+        Quiz quiz60 = new Quiz("general", "");
         quizRepository.save(quiz60);
 
         QuestionAnswer Q60  = new QuestionAnswer("Question 60", "Answer 60", quiz60);
