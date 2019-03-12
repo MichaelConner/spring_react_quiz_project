@@ -228,6 +228,40 @@ public class DataLoader implements ApplicationRunner {
 
 
 
+
+
+        Quiz quiz60 = new Quiz("general");
+        quizRepository.save(quiz60);
+
+        QuestionAnswer Q60  = new QuestionAnswer("Question 60", "Answer 60", quiz60);
+        Q60.setAttempted(4);
+        Q60.setCorrect(3);
+        questionRepository.save(Q60);
+
+        QuestionAnswer Q61  = new QuestionAnswer("Question 61", "Answer 61", quiz60);
+        Q61.setAttempted(6);
+        Q61.setCorrect(3);
+        questionRepository.save(Q61);
+
+        QuestionAnswer Q62  = new QuestionAnswer("Question 62", "Answer 62", quiz60);
+        Q62.setAttempted(3);
+        Q62.setCorrect(3);
+        questionRepository.save(Q62);
+
+        QuestionAnswer Q63  = new QuestionAnswer("Question 63", "Answer 63", quiz60);
+        Q63.setAttempted(6);
+        Q63.setCorrect(1);
+        questionRepository.save(Q63);
+
+        quiz60.addQuestionAnswer(Q60);
+        quiz60.addQuestionAnswer(Q61);
+        quiz60.addQuestionAnswer(Q62);
+        quiz60.addQuestionAnswer(Q63);
+        quiz60.setDifficulty();
+        System.out.print(quiz60.getDifficulty());
+
+        quizRepository.save(quiz60);
+
     }
 
 }

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 class QuizTile extends Component {
     render(){
+
         return(
             <div className="quiz-tile">
                 <p>Placholder for img</p>

@@ -15,20 +15,23 @@ public class Quiz {
     @Column(name="category")
     private String category;
 
+    @Column(name="difficulty")
+    private double difficulty;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<QuestionAnswer> questionAnswer;
 
 
     public Quiz(String category) {
         this.category = category;
         this.questionAnswer = new ArrayList<>();
-
+        this.difficulty = 0.5;
     }
 
     public Quiz() {
@@ -61,5 +64,19 @@ public class Quiz {
 
     public void addQuestionAnswer(QuestionAnswer qa){
         this.questionAnswer.add(qa);
+    }
+
+    public void setDifficulty(){
+        double totalCorrect = 0;
+        double totalAttempted = 0;
+        for(QuestionAnswer question: this.questionAnswer){
+            totalCorrect += (double) question.getCorrect();
+            totalAttempted += (double) question.getAttempted();
+        }
+        this.difficulty =  1- totalCorrect/totalAttempted;
+    }
+
+    public double getDifficulty() {
+        return difficulty;
     }
 }

@@ -47,6 +47,7 @@ public class QuizRepositoryImpl implements QuizRepositoryCustom {
 
         return results;
     }
+    
 
 
 }

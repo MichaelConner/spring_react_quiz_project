@@ -19,6 +19,12 @@ public class QuestionAnswer {
     @Column(name="answer")
     private String answer;
 
+    @Column(name="attempted")
+    private int attempted;
+
+    @Column(name="correct")
+    private int correct;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
@@ -28,7 +34,8 @@ public class QuestionAnswer {
         this.question = question;
         this.quiz = quiz;
         this.answer = answer;
-
+        this.attempted = 0;
+        this.correct = 0;
     }
 
 
@@ -38,6 +45,22 @@ public class QuestionAnswer {
 
     public String getAnswer() {
         return answer;
+    }
+
+    public int getAttempted() {
+        return attempted;
+    }
+
+    public void setAttempted(int attempted) {
+        this.attempted = attempted;
+    }
+
+    public int getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(int correct) {
+        this.correct = correct;
     }
 
     public void setAnswer(String answer) {
