@@ -35,4 +35,10 @@ public class QuizController {
     public void deleteQuizById(@PathVariable Long id){
         quizRepository.deleteById(id);
     }
+
+    @PostMapping
+    public void addNewQuiz (@RequestBody Quiz quiz){
+        quizRepository.save(quiz);
+    }
+
 }

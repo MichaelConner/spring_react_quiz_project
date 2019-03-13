@@ -25,7 +25,7 @@ public class QuestionAnswer {
     @Column(name="correct")
     private int correct;
 
-    @JsonIgnore
+    
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
     private Quiz quiz;

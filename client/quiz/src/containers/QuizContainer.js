@@ -17,6 +17,7 @@ class QuizContainer extends Component{
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCurrentQuizChange = this.handleCurrentQuizChange.bind(this);
         this.handleDeleteQuiz = this.handleDeleteQuiz.bind(this);
+        this.handleSubmitQuiz = this.handleSubmitQuiz.bind(this);
     }
 
 componentDidMount(){
@@ -48,6 +49,55 @@ handleDeleteQuiz(id){
             );
         })
 } 
+
+handleSubmitQuiz(event){
+
+        console.log(event) 
+
+        event.preventDefault();
+        event.persist();
+
+        const quizData= { category: `${event.target.category.value}`,
+                          imgurl: `${event.target.imgurl.value}`
+        }
+
+        console.log(quizData)
+   
+        const url2 = `http://localhost:8080/quizzes`
+        return fetch(url2, {method: 'POST', 
+                     headers: {'Content-Type': 'application/json',
+                     'Accept': 'application/json' }, 
+                     body: JSON.stringify(quizData)})
+            .then(res=> res)
+            .then((returnedData) => {
+                
+            const updatedQuizzes = [...this.state.quizzes, returnedData]
+            return this.setState({quizzes: updatedQuizzes})
+            })
+            .then(()=>{  
+              
+        console.log(event.target) 
+        console.log(this.state.quizzes)   
+
+            const question1Data = { question: `${event.target.question1.value}`,
+                  answer: `${event.target.answer1.value}`,
+                  quiz: {category: `${event.target.category.value}`,
+                        imgurl: `${event.target.imgurl.value}`,
+                        id: this.state.quizzes.length
+                }}
+
+            console.log(question1Data)
+
+            const url = `http://localhost:8080/questions`
+            return fetch(url, {method: 'POST', 
+                              headers: {'Content-Type': 'application/json',
+                              'Accept': 'application/json' }, 
+                              body: JSON.stringify(question1Data)})
+            })
+            
+        }
+
+
 
 
 
@@ -88,6 +138,7 @@ render(){
                         <Route name="submit-quiz" 
                                path="/submit-quiz"
                                render={() => <SubmitQuiz 
+                               submitQuiz={this.handleSubmitQuiz} 
                                currentQuizId={this.state.currentQuizId}/>}
                                />
                     </Switch>
