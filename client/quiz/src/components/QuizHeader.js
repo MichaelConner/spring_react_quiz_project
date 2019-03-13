@@ -8,8 +8,9 @@ class QuizHeader extends Component {
         return(
             <Fragment>
                 <div className='quiz-header'>
-                    <h2><Link to="/">Hi I am the Quiz Header!</Link></h2>
+                    <h1><Link to="/">oo| Snorkle</Link></h1>
                     <SearchInput value={this.props.value} onChange={this.props.onChange}/>
+                    
                     <Link to="submit-quiz">Submit a new quiz</Link>
                 </div>
             </Fragment>
