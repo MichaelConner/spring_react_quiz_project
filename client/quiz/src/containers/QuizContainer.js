@@ -52,16 +52,12 @@ handleDeleteQuiz(id){
 
 handleSubmitQuiz(event){
 
-        console.log(event) 
-
         event.preventDefault();
         event.persist();
 
         const quizData= { category: `${event.target.category.value}`,
                           imgurl: `${event.target.imgurl.value}`
         }
-
-        console.log(quizData)
    
         const url2 = `http://localhost:8080/quizzes`
         return fetch(url2, {method: 'POST', 
@@ -76,17 +72,12 @@ handleSubmitQuiz(event){
             })
             .then(()=>{  
               
-        console.log(event.target) 
-        console.log(this.state.quizzes)   
-
             const question1Data = { question: `${event.target.question1.value}`,
                   answer: `${event.target.answer1.value}`,
                   quiz: {category: `${event.target.category.value}`,
                         imgurl: `${event.target.imgurl.value}`,
                         id: this.state.quizzes.length
                 }}
-
-            console.log(question1Data)
 
             const url = `http://localhost:8080/questions`
             return fetch(url, {method: 'POST', 
@@ -122,7 +113,8 @@ render(){
                             onChange={this.handleInputChange}/>
                     
                     <Switch>  
-                        <Route exact path="/" 
+                        <Route name="home"
+                               exact path="/" 
                                render={() => <QuizList 
                                quizzes={filteredList} 
                                onChange={this.handleCurrentQuizChange} 

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: center; 
 }
 
 .App-logo {
@@ -33,6 +33,11 @@
 }
 
 /* CSS for us starts below */
+
+a {
+  color: inherit;
+}
+
 .quiz-container{
   background-color: blue;
 }
@@ -42,6 +47,7 @@
   text-align: center;
  
 }
+
 .quiz-list{
   background-color: white;
   display: flex;
@@ -51,6 +57,7 @@
   align-items: center;
   align-content: space-between;
 }
+
 .quiz-tile{
  background-color: white;
  border-width: 1px;
@@ -58,12 +65,15 @@
  flex-basis: 30%;
  margin: 1%;
 }
+
 .quiz{
   text-align: center;
 }
+
 .image-container{
   position: relative;
 }
+
 .image-container .delete-button{
   position: absolute;
   bottom: 90%;

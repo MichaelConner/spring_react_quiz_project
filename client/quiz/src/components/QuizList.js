@@ -9,6 +9,7 @@ class QuizList extends Component {
                 <QuizTile key= {quiz.id} 
                           id={quiz.id} 
                           category={quiz.category} 
+                          img={quiz.imgurl}
                           onChange={this.props.onChange}
                           onDelete={this.props.onDelete}
                           />
