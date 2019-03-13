@@ -37,7 +37,7 @@ public class Quiz {
         this.difficulty = 0.5;
 
         if (imgurl.isEmpty()){
-            this.imgurl = "somedefaultimage";
+            this.imgurl = "https://t-ec.bstatic.com/images/hotel/max1024x768/150/150814695.jpg";
         } else {
             this.imgurl = imgurl;
         }

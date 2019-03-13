@@ -39,11 +39,14 @@
 }
 
 .quiz-header{
-  background-color: red;
+  background-color: #273E47;
+  color: white;
+  text-align: center;
+ 
 }
 
 .quiz-list{
-  background-color: green;
+  background-color: white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -53,9 +56,25 @@
 }
 
 .quiz-tile{
- background-color: yellow;
+ background-color: white;
+ border-width: 1px;
+ border-color: black;
  flex-basis: 30%;
  margin: 1%;
+}
+
+.quiz{
+  text-align: center;
+}
+
+.image-container{
+  position: relative;
+}
+
+.image-container .delete-button{
+  position: absolute;
+  bottom: 90%;
+  left:94%
 }
 
 .delete-button{

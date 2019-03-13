@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
 class Quiz extends Component {
     constructor(props){
         super(props);
         this.state = {
-            questions: [],
+            questions: [] 
         };
+        this.handleUserInput = this.handleUserInput.bind(this);
     }
     
     componentDidMount(){
@@ -17,20 +18,42 @@ class Quiz extends Component {
             .then(data => this.setState({questions: data}))
     }
 
+    handleUserInput (e) {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({[name]: value});
+      }
+
     render(){
 
         const questions = this.state.questions.map(question => {
             return(
-                <p key={question.id}> {question.id} : {question.question} {question.answer} </p>
+                <section key={question.id}>  
+                
+                <label htmlFor="question">{question.question}</label>
+                
+                <input type="text" 
+                       className="answer" 
+                       name={question.id} 
+                       value={this.state.value}
+                       onChange={this.handleUserInput}
+                       /> 
+                
+                </section>
             )
         })
 
         return(
-            <div className="quiz">
-                <h2>Hi I am  a Quiz!</h2> 
-                {questions} 
-                <Link to="/">back</Link>
-            </div>
+                <Fragment>
+                    <article className='quiz'>  
+                        <h2>Quiz</h2>
+                        <form>       
+                            {questions}
+                            <button type="submit" className="answer-button">Submit Answers</button>
+                        </form>
+                        <Link to="/">back</Link>
+                    </article>
+                </Fragment>
         )
     } 
 }

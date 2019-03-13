@@ -5,19 +5,25 @@ class QuizTile extends Component {
     render(){
 
         return(
-            <div className="quiz-tile">
-                <p>Placeholder for img</p>
-                <h4>{this.props.id}: {this.props.category}</h4>
-                <p><button 
-                        className="delete-button" 
-                        type="image"
-                        onClick={() => {this.props.onDelete(`${this.props.id}`)}}>
-                    </button></p>
-                
+            <div className="quiz-tile">               
                 <Link to={`quiz/${this.props.id}`} 
-                onClick={() => {this.props.onChange(`${this.props.id}`)}}
-                >Link to actual quiz</Link>
+                      onClick={() => {this.props.onChange(`${this.props.id}`)}}>
+                      
+                      <div className="image-container">
+                        <img src={this.props.img} 
+                             alt="tile"
+                             width= "100%"
+                             height="100%">
+                        </img>
 
+                        <button 
+                            className="delete-button" 
+                            type="image"
+                            onClick={() => {this.props.onDelete(`${this.props.id}`)}}>
+                        </button>
+                    </div>
+                    
+                </Link>
             </div>
         )
     } 
