@@ -16,8 +16,7 @@ class QuizList extends Component {
         })
 
         return(
-            <div className="quiz-list">
-                <h2>Hi I am the Quiz List!</h2>
+            <div className="quiz-list">     
                 {quizTiles}
             </div>
         )

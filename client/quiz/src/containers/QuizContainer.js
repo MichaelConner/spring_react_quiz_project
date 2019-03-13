@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import QuizHeader from '../components/QuizHeader'
 import QuizList from '../components/QuizList'
 import Quiz from '../components/Quiz'
+import SubmitQuiz from '../components/SubmitQuiz';
 
 class QuizContainer extends Component{
     constructor(props){
@@ -81,6 +82,12 @@ render(){
                         <Route name="quiz" 
                                path="/quiz/:id"
                                render={() => <Quiz 
+                               currentQuizId={this.state.currentQuizId}/>}
+                               />
+
+                        <Route name="submit-quiz" 
+                               path="/submit-quiz"
+                               render={() => <SubmitQuiz 
                                currentQuizId={this.state.currentQuizId}/>}
                                />
                     </Switch>
