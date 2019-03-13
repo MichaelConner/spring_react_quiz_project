@@ -80,14 +80,25 @@ a {
  margin: 1%;
 }
 
+.submit-form-page{
+  background-color: white;
+  color: #273E47;
+  display: flex;
+  justify-content: center;
+ }
+
+ .submit-form{
+   text-align: right;
+ }
+
+ .quiz{
+  text-align: center;
+}
+
 img{
   object-fit: contain;
   /* max-height: 300px; */
   max-width: 100%;
-}
-
-.quiz{
-  text-align: center;
 }
 
 .delete-button{
@@ -107,6 +118,14 @@ img{
 }
 
 .reveal-button{
+  background-color: #273E47;
+  color: white;
+  font-size: 20pt;
+  width: 20%;
+  height: 40px;
+}
+
+.submit-quiz-button{
   background-color: #273E47;
   color: white;
   font-size: 20pt;
