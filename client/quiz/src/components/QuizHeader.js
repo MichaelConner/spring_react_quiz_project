@@ -9,9 +9,14 @@ class QuizHeader extends Component {
             <Fragment>
                 <div className='quiz-header'>
                     <h1><Link to="/">oo| Snorkle</Link></h1>
-                    <SearchInput value={this.props.value} onChange={this.props.onChange}/>
-                    
-                    <Link to="submit-quiz">Submit a new quiz</Link>
+                        <div className='header-objects'>
+                            <label>Dive in: </label>
+                            <SearchInput value={this.props.value} onChange={this.props.onChange}/>
+                            <p></p>
+                            <p></p>
+                            <Link to="submit-quiz">Click here to share the depths of your knowledge by submitting a new quiz!</Link>
+                            <p></p>
+                        </div>
                 </div>
             </Fragment>
         )
