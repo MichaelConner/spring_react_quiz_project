@@ -13,8 +13,18 @@ class QuizTile extends Component {
                 </Link>
                 <p>
                     <button className="delete-button" 
-                        type="delete-button"
-                        onClick={() => {this.props.onDelete(`${this.props.id}`)}}>Delete</button>
+                            type="delete-button"
+                            onClick={() => {this.props.onDelete(`${this.props.id}`)}}>
+                            Delete</button>
+                     
+                     <button className="difficulty-button" 
+                             type="difficulty-button"
+                             disabled>
+                             Difficulty: {this.props.difficulty * 100}%</button>
+
+
+
+
                 </p>
             </div>
         )

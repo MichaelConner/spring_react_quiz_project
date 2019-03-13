@@ -10,6 +10,7 @@ class QuizList extends Component {
                           id={quiz.id} 
                           category={quiz.category} 
                           img={quiz.imgurl}
+                          difficulty={quiz.difficulty}
                           onChange={this.props.onChange}
                           onDelete={this.props.onDelete}
                           />

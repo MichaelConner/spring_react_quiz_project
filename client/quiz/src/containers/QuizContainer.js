@@ -88,10 +88,6 @@ handleSubmitQuiz(event){
             
         }
 
-
-
-
-
 getFilteredList() {
     const filterValue = this.state.inputValue.toLowerCase()
     return this.state.quizzes.filter(({ category }) =>

@@ -6,7 +6,9 @@ class Quiz extends Component {
         super(props);
         this.state = {
             questions: [],
+            hidden: true
         };
+        this.unhideAnswer = this.unhideAnswer.bind(this);
     }
     
     componentDidMount(){
@@ -17,21 +19,40 @@ class Quiz extends Component {
             .then(data => this.setState({questions: data}))
     }
 
-    render(){
+    unhideAnswer() {
+        if (!this.state.hidden) {
+            this.setState({ hidden : true})
+            }else{
+            this.setState({ hidden : false})
+        }       
+    } 
 
+    render(){
+        
         const questions = this.state.questions.map(question => {
             return(
-                <p key={question.id}> {question.id} : {question.question} {question.answer} </p>
+                
+                <div key={question.id}> 
+                
+                <h3>{question.id}. {question.question}</h3>
+                
+                <h3 id={question.id} className={this.state.hidden ? 'hidden' : ''}> {question.answer} </h3>
+
+                </div>
             )
         })
 
         return(
             <div className="quiz">
-                <h2>Hi I am  a Quiz!</h2> 
                 {questions} 
-                <Link to="/">back</Link>
+                <p></p>
+                <button className="reveal-button" onClick={this.unhideAnswer}>
+                    Show/Hide Answers
+                </button>
+                <p></p>
+                <h4><Link to="/">oo| surface back to the home page</Link></h4>
             </div>
-        )
+       )
     } 
 }
 
