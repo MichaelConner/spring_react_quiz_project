@@ -20,7 +20,7 @@ class QuizTile extends Component {
                      <button className="difficulty-button" 
                              type="difficulty-button"
                              disabled>
-                             Difficulty: {this.props.difficulty * 100}%</button>
+                             Difficulty: {Math.round(this.props.difficulty * 100,0)}%</button>
 
 
 

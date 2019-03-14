@@ -70,8 +70,11 @@ handleSubmitQuiz(event){
             const updatedQuizzes = [...this.state.quizzes, returnedData]
             return this.setState({quizzes: updatedQuizzes})
             })
+            
             .then(()=>{  
-              
+
+            this.forceUpdate()
+
             const question1Data = { question: `${event.target.question1.value}`,
                   answer: `${event.target.answer1.value}`,
                   quiz: {category: `${event.target.category.value}`,
@@ -85,7 +88,6 @@ handleSubmitQuiz(event){
                               'Accept': 'application/json' }, 
                               body: JSON.stringify(question1Data)})
             })
-            
         }
 
 getFilteredList() {
