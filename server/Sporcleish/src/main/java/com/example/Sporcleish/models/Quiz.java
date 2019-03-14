@@ -37,7 +37,7 @@ public class Quiz {
         this.difficulty = 0.5;
 
         if (imgurl.isEmpty()){
-            this.imgurl = "somedefaultimage";
+            this.imgurl = "General";
         } else {
             this.imgurl = imgurl;
         }
